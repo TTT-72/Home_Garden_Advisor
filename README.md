@@ -76,7 +76,7 @@
       <figure>
         <img src="images/main_device.jpg" alt="本体" style="width:100%;">
         <figcaption align="center">
-          <code>main_device.jpg</code>
+          <code>本体</code>
         </figcaption>
       </figure>
     </td>
@@ -84,7 +84,7 @@
       <figure>
         <img src="images/advice_image.jpg" alt="送信メッセージ" style="width:100%;">
         <figcaption align="center">
-          <code>advice_image.jpg</code>
+          <code>送信メッセージ</code>
         </figcaption>
       </figure>
     </td>
