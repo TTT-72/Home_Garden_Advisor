@@ -49,7 +49,8 @@
 
 ### 1. ハードウェアの準備
 
-[使用するセンサーや部品のリスト、および配線図へのパス]
+以下の二つを使用します。
+![device_and_censor.jpg](images/device_and_censor.jpg)
 
 ### 2. Google Apps Script の設定
 
