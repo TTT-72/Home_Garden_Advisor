@@ -50,6 +50,7 @@
 ### 1. ハードウェアの準備
 
 以下の二つを使用します。
+
 ![device_and_censor.jpg](images/device_and_censor.jpg)
 
 ### 2. Google Apps Script の設定
