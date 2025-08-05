@@ -76,9 +76,9 @@
 #  デモンストレーション
 
 実機
-(images/main_device.jpg)
+![main_device](images/main_device.jpg)
 送信メッセージ
-(images/advice_image.jpg)
+![message](images/advice_image.jpg)
 
 ---
 
