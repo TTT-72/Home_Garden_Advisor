@@ -5,13 +5,14 @@
 #include <ArduinoJson.h>
 
 // WiFi Setting
-const char* ssid = "AP01-02";
-const char* password = "1qaz2wsx";
+const char* ssid = "****";
+const char* password = "*********";
 
 //GAS setting
 const char* server = "script.google.com";
 const int httpsPort = 443;
-String url = "https://script.google.com/macros/s/AKfycbxKow7F0tWJj_F2V6VTki7OXo1ZRNYGZGplp1KDtNq2HM7VvX3pvTCMTSWBrXMoe_2c/exec";
+//google drive内のGoogle スプレッドシートurlの/d/****/editまでの****(50前後の英数字)を以下の****に張り付け
+String url = "https://script.google.com/macros/s/****/exec";
 
 //DHT20 setting
 const int litsnsrPin = 4; //3:ConnectorA 4:ConnectorB
