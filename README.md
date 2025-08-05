@@ -46,7 +46,7 @@
 
 [使用するセンサーや部品のリスト、および配線図へのパス]
 
-**配線図**
+#### 配線図
 ![images/circuit.png](images/circuit.png)
 
 ### 2. Google Apps Script の設定
@@ -76,9 +76,9 @@
 
 ##  デモンストレーション
 
-### 実機  
+#### 実機  
 ![main_device](images/main_device.jpg)
-### 送信メッセージ  
+#### 送信メッセージ  
 ![message](images/advice_image.jpg)
 
 ---
