@@ -1,12 +1,6 @@
 # Home_Garden_Advisor
-このプロジェクトは、家庭菜園という限定的な気温を測定し、予測推移と合わせてAIが作物にすべき作業を提示してくれる農業初心者のためのものです。
-**ESP32**で取得したセンサーデータとAIによる予測と助言は、**Google Apps Script (GAS)**を介して**Googleスプレッドシート**に記録します。
-
-## 特徴
-
--   **ハードウェア**: ESP32 と DHT20 を使用。（こちらは教材としてESP32CherryIoTの機器をお借りして使用しています。）
--   **ファームウェア**: ESP32はDHT20より気温・湿度を取得し、WiFi経由でGASに送信。
--   **API連携**: OpenWeather・Google Gemini・LineとAPI連携し、その日の気温に応じた作物への助言をLineで送信。また、取得したデータをリアルタイムにGoogleスプレッドシートに保存。
+当プロジェクトは、家庭菜園という限定的な気温を測定し、予測推移と合わせてAIが作物に合わせた助言を行い、家庭菜園初心者を助ける機器の開発というコンセプトです。
+**ESP32**で取得したセンサーデータとAIによる予測と助言をLINE経由で行い、**Google Apps Script (GAS)**を介して**Googleスプレッドシート**に連日の気温・湿度情報を記録します。
 
 ---
 
@@ -14,10 +8,10 @@
 
 | 技術スタック | 詳細 |
 | :--- | :--- |
-| **ハードウェア** | ESP32-CherryIoT, DHT20 (温度・湿度・気圧センサー) |
+| **ハードウェア** | ESP32-CherryIoT, DHT20 (温度・湿度・気圧センサー) （こちらは学習教材としてESP32CherryIoTの機器をお借りして使用しています。）|
 | **ファームウェア** | Arduino |
 | **クラウド** | Google Apps Script, Google スプレッドシート |
-| **API** | Open weather, Google Gemini, Line |
+| **API** | OpenWeather, Google Gemini, Line |
 
 ---
 
