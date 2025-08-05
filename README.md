@@ -32,6 +32,9 @@
 4.  **データ記録**:
     - ESP32からの測定値、OpenWeatherの予測値、そしてGeminiが生成したテキストをGoogleスプレッドシートに記録します。
 
+####　　　 概念図
+　　![images/circuit.png](images/circuit.png)
+
 ---
 
 ## セットアップ手順
@@ -40,13 +43,10 @@
 
 [使用するセンサーや部品のリスト、および配線図へのパス]
 
-#### 配線図
-![images/circuit.png](images/circuit.png)
-
 ### 2. Google Apps Script の設定
 
 1.  **スプレッドシートの準備**:
-    * [gas_scripts/scensorData.ods](gas_scripts/censorData.ods) をダウンロードし、Googleドライブにアップロードしてください。
+    * [GAS_scripts/scensorData.ods](GAS_scripts/censorData.ods) をダウンロードし、Googleドライブにアップロードしてください。
     * スプレッドシートを開き、URLから**スプレッドシートID**を控えておきます。
 
 2.  **GASのデプロイ**:
@@ -62,7 +62,7 @@
 ### 3. ESP32 ファームウェアの設定
 
 1.  **プロジェクトを開く**: `ESP32_cherryIoT/`フォルダ内の `.ino`ファイルをArduino IDEで開きます。
-2.  **Wi-Fi設定**: コード内の `const char* ssid = "..."` と `const char* password = "..."` をご自身のWi-Fi情報に書き換えます。
+2.  **Wi-Fi設定**: コード内の `const char* ssid = "****"` と `const char* password = "****"` をご自身のWi-Fi情報に書き換えます。
 3.  **GASのURL設定**: 先ほど取得したGASのWebアプリURLをコード内の該当箇所に貼り付けます。
 4.  **書き込み**: [Arduino IDEで**ESP32 Dev Module**ボードを選択し、PCとESP32を接続して書き込みを実行します。]
 
@@ -79,5 +79,5 @@
 
 ## 経緯
 
-この機器は技術的な練習のために作成されました。
+この機器はIoT初学者が技術的な理解・練習のために作成しました。
 
