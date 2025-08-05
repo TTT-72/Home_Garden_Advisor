@@ -68,11 +68,28 @@
 
 ---
 
-##  デモンストレーション
+##  実機画像
 
-#### 実機  #### 送信メッセージ  
-![main_device](images/main_device.jpg) ![message](images/advice_image.jpg)
-
+<table>
+  <tr>
+    <td align="center">
+      <figure>
+        <img src="images/main_device.jpg" alt="本体" style="width:100%;">
+        <figcaption align="center">
+          <code>main_device.jpg</code>
+        </figcaption>
+      </figure>
+    </td>
+    <td align="center">
+      <figure>
+        <img src="images/advice_image.jpg" alt="送信メッセージ" style="width:100%;">
+        <figcaption align="center">
+          <code>advice_image.jpg</code>
+        </figcaption>
+      </figure>
+    </td>
+  </tr>
+</table>
 
 ---
 
