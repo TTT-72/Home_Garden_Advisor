@@ -46,7 +46,8 @@
 
 [使用するセンサーや部品のリスト、および配線図へのパス]
 
--   **配線図**: ![images/circuit.png](images/circuit.png)
+**配線図**
+![images/circuit.png](images/circuit.png)
 
 ### 2. Google Apps Script の設定
 
