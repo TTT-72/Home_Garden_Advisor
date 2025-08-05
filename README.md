@@ -32,8 +32,18 @@
 4.  **データ記録**:
     - ESP32からの測定値、OpenWeatherの予測値、そしてGeminiが生成したテキストをGoogleスプレッドシートに記録します。
 
-#### 概念図
-　　![images/circuit.png](images/circuit.png)
+<table>
+  <tr>
+    <td align="center">
+      <figure>
+        <img src="images/circuit.png" alt="概念図" style="width:100%;">
+        <figcaption align="center">
+          <code>概念図</code>
+        </figcaption>
+      </figure>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -64,7 +74,7 @@
 1.  **プロジェクトを開く**: `ESP32_cherryIoT/`フォルダ内の `.ino`ファイルをArduino IDEで開きます。
 2.  **Wi-Fi設定**: コード内の `const char* ssid = "****"` と `const char* password = "****"` をご自身のWi-Fi情報に書き換えます。
 3.  **GASのURL設定**: 先ほど取得したGASのWebアプリURLをコード内の該当箇所に貼り付けます。
-4.  **書き込み**: [Arduino IDEで**ESP32 Dev Module**ボードを選択し、PCとESP32を接続して書き込みを実行します。]
+4.  **書き込み**: Arduino IDEで**ESP32 C3 Dev Module**ボードを選択し、PCとESP32を接続して書き込みを実行します。
 
 ---
 
