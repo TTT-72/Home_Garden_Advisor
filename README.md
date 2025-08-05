@@ -32,7 +32,7 @@
 4.  **データ記録**:
     - ESP32からの測定値、OpenWeatherの予測値、そしてGeminiが生成したテキストをGoogleスプレッドシートに記録します。
 
-####　　　 概念図
+#### 概念図
 　　![images/circuit.png](images/circuit.png)
 
 ---
@@ -70,10 +70,9 @@
 
 ##  デモンストレーション
 
-#### 実機  
-![main_device](images/main_device.jpg)
-#### 送信メッセージ  
-![message](images/advice_image.jpg)
+#### 実機  #### 送信メッセージ  
+![main_device](images/main_device.jpg) ![message](images/advice_image.jpg)
+
 
 ---
 
