@@ -8,7 +8,7 @@
 
 | 技術スタック | 詳細 |
 | :--- | :--- |
-| **ハードウェア** | ESP32-CherryIoT, DHT20 (温度・湿度・気圧センサー) （こちらは学習教材としてESP32CherryIoTの機器をお借りして使用しています。）|
+| **ハードウェア** | ESP32-CherryIoT, DHT20 (温度・湿度・気圧センサー) [**（こちらは学習教材としてESP32CherryIoTの機器をお借りして使用しています。）**](https://github.com/DenkiJoshi/ESP32CherryIoT)|
 | **ファームウェア** | Arduino |
 | **クラウド** | Google Apps Script, Google スプレッドシート |
 | **API** | OpenWeather, Google Gemini, Line |
