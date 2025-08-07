@@ -1,4 +1,4 @@
-#include <DHT20.h> //DHT20 by RobTillaart
+#include <DHT20.h> //DHT20 by RobTillaart 温湿度センサー
 #include <Wire.h>  //シリアル通信規格　本センサ基盤の搭載規格
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
