@@ -1,43 +1,43 @@
 # Home_Garden_Advisor
-���v���W�F�N�g�́A�ƒ�؉��Ƃ�������I�ȋC���𑪒肵�A�\�����ڂƍ��킹��AI���앨�ɍ��킹���������s���A�ƒ�؉����S�҂�������@��̊J���Ƃ����R���Z�v�g�ł��B
-**ESP32**�Ŏ擾�����Z���T�[�f�[�^��AI�ɂ��\���Ə�����LINE�o�R�ōs���A**Google Apps Script (GAS)**�����**Google�X�v���b�h�V�[�g**�ɘA���̋C���E���x�����L�^���܂��B
+当プロジェクトは、家庭菜園という限定的な気温を測定し、予測推移と合わせてAIが作物に合わせた助言を行い、家庭菜園初心者を助ける機器の開発というコンセプトです。
+**ESP32**で取得したセンサーデータとAIによる予測と助言をLINE経由で行い、**Google Apps Script (GAS)**を介して**Googleスプレッドシート**に連日の気温・湿度情報を記録します。
 
 ---
 
-## �g�p�Z�p
+## 使用技術
 
-| �Z�p�X�^�b�N | �ڍ� |
+| 技術スタック | 詳細 |
 | :--- | :--- |
-| **�n�[�h�E�F�A** | ESP32-CherryIoT, DHT20�i�w�K���ނƂ���[**�������ESP32CherryIoT�̋@������؂肵�Ďg�p���Ă��܂��B**](https://github.com/DenkiJoshi/ESP32CherryIoT))|
-| **�t�@�[���E�F�A** | ArduinoIDE |
-| **�N���E�h** | Google Apps Script, Google SpreadSheet |
+| **ハードウェア** | ESP32-CherryIoT, DHT20（学習教材として[**こちら**](https://github.com/DenkiJoshi/ESP32CherryIoT)の[**ESP32CherryIoT**](images/g5.jpg)の機器をお借りして使用しています。)|
+| **ファームウェア** | ArduinoIDE |
+| **クラウド** | Google Apps Script, Google SpreadSheet |
 | **API** | OpenWeather, Google Gemini, Line |
 
 ---
 
-## ���쌴��
+## 動作原理
 
-���̃v���W�F�N�g�̒��j��S��GAS�X�N���v�g�́AESP32���瑗���Ă����C���E���x�f�[�^�����ƂɁA�ȉ��̂悤�ȏ������������s���܂��B
+このプロジェクトの中核を担うGASスクリプトは、ESP32から送られてきた気温・湿度データをもとに、以下のような処理を自動実行します。
 
-1.  **ESP32����̃f�[�^��M**:
-    - ESP32����GET���N�G�X�g�ŋC���E���x�f�[�^���󂯎��܂��B
+1.  **ESP32からのデータ受信**:
+    - ESP32からGETリクエストで気温・湿度データを受け取ります。
 
-2.  **�O��API�A�g**:
-    - ��M��������l�����ƂɁAOpenWeather API����12���ԕ��̒n�_�\���C���f�[�^���擾���܂��B
-    - ����l�A�\���C���A�����Ĉ�ĂĂ����؂̎�ށi��F�~�j�g�}�g�A�i�X�j��Gemini API�ւ̃v�����v�g�ɂ܂Ƃ߁A�����̋C���\���ƍ앨�ւ̑Ώ��@�𐶐����܂��B
+2.  **外部API連携**:
+    - 受信した測定値をもとに、OpenWeather APIから12時間分の地点予測気温データを取得します。
+    - 測定値、予測気温、そして育てている野菜の種類（例：ミニトマト、ナス）をGemini APIへのプロンプトにまとめ、庭限定の気温予測と作物への対処法を生成します。
 
-3.  **��񔭐M**:
-    - Gemini API�����������e�L�X�g�i��F�u�~�j�g�}�g�͖�Ԃ̗₦���݂ɒ��ӂ��K�v�ł�...�v�j��LINE�ő��M���܂��B
+3.  **情報発信**:
+    - Gemini APIが生成したテキスト（例：「ミニトマトは夜間の冷え込みに注意が必要です...」）をLINEで送信します。
 
-4.  **�f�[�^�L�^**:
-    - ESP32����̑���l�AOpenWeather�̗\���l�A������Gemini�����������e�L�X�g��Google�X�v���b�h�V�[�g�ɋL�^���܂��B
+4.  **データ記録**:
+    - ESP32からの測定値、OpenWeatherの予測値、そしてGeminiが生成したテキストをGoogleスプレッドシートに記録します。
 
-### �T�O�}
+### 概念図
 <table>
   <tr>
     <td align="center">
       <figure>
-        <img src="images/circuit.png" alt="�T�O�}" style="width:100%;">
+        <img src="images/circuit.png" alt="概念図" style="width:100%;">
       </figure>
     </td>
   </tr>
@@ -45,57 +45,57 @@
 
 ---
 
-## �Z�b�g�A�b�v�菇
+## セットアップ手順
 
-### 1. �n�[�h�E�F�A�̏���
+### 1. ハードウェアの準備
 
-�ȉ��̓���g�p���܂��B
+以下の二つを使用します。
 
 ![device_and_censor.jpg](images/device_and_censor.jpg)
 
-### 2. Google Apps Script �̐ݒ�
+### 2. Google Apps Script の設定
 
-1.  **�X�v���b�h�V�[�g�̏���**:
-    * [GAS_scripts/scensorData.ods](GAS_scripts/censorData.ods) ���_�E�����[�h���AGoogle�h���C�u�ɃA�b�v���[�h���Ă��������B
-    * �X�v���b�h�V�[�g���J���AURL����**�X�v���b�h�V�[�gID**���T���Ă����܂��B
+1.  **スプレッドシートの準備**:
+    * [GAS_scripts/scensorData.ods](GAS_scripts/censorData.ods) をダウンロードし、Googleドライブにアップロードしてください。
+    * スプレッドシートを開き、URLから**スプレッドシートID**を控えておきます。
 
-2.  **GAS�̃f�v���C**:
-    * �J�����X�v���b�h�V�[�g����[AppScript](images/spreadsheet_setting.png)���J���܂��B
-    * �V�K�̃X�N���v�g�t�@�C�����쐬���A�f�t�H���g�̋L�q���폜���܂��B
-    * `gas_scripts`�t�H���_����`.gs`�t�@�C�����J���A�����ꂽ�R�[�h���R�s�[�y�[�X�g�Œ���t���Ă��������Bgs�t�@�C���͑S7�ł����A�����悤��7�ɕ����Ă��A���gs�t�@�C����7�����ׂẴR�[�h���R�s�[���Ă��@�\����͂��ł��B
-    * �S�Ă�.gs�t�@�C���̃R�[�h���ڂ��I������AWeb�A�v���Ƃ��ăf�v���C���A���s���ꂽURL���R�s�[���܂��B
+2.  **GASのデプロイ**:
+    * 開いたスプレッドシートから[AppScript](images/spreadsheet_setting.png)を開きます。
+    * 新規のスクリプトファイルを作成し、デフォルトの記述を削除します。
+    * `gas_scripts`フォルダ内の`.gs`ファイルを開き、書かれたコードをコピーペーストで張り付けてください。gsファイルは全7つですが、同じように7つに分けても、一つのgsファイルに7つ分すべてのコードをコピーしても機能するはずです。
+    * 全ての.gsファイルのコードを移し終えたら、Webアプリとしてデプロイし、発行されたURLをコピーします。
 
-3.  **API�L�[�̐ݒ�**:
-    * GAS�́u�v���W�F�N�g�̐ݒ�v����u�X�N���v�g�v���p�e�B�v���J���܂��B
-    * **�L�[**�� �摜�ɂ���[�L�[��](images/APIkey_list.png)���A**�l**�ɂ����g�̎����Ă���API�L�[/�X�v���b�h�V�[�gID��ݒ肵�Ă��������B
+3.  **APIキーの設定**:
+    * GASの「プロジェクトの設定」から「スクリプトプロパティ」を開きます。
+    * **キー**に 画像にある[キー名](images/APIkey_list.png)を、**値**にご自身の持っているAPIキー/スプレッドシートIDを設定してください。
 
-### 3. ESP32 �t�@�[���E�F�A�̐ݒ�
+### 3. ESP32 ファームウェアの設定
 
-1.  **�v���W�F�N�g���J��**: `ESP32_cherryIoT/`�t�H���_���� `.ino`�t�@�C����Arduino IDE�ŊJ���܂��B
-2.  **Wi-Fi�ݒ�**: �R�[�h���� `const char* ssid = "****"` �� `const char* password = "****"` �������g��Wi-Fi���ɏ��������܂��B
-3.  **GAS��URL�ݒ�**: ��قǎ擾����GAS��Web�A�v��URL���R�[�h���̊Y���ӏ��ɓ\��t���܂��B
-4.  **��������**: Arduino IDE��**ESP32 C3 Dev Module**�{�[�h��I�����APC��ESP32��ڑ����ď������݂����s���܂��B
+1.  **プロジェクトを開く**: `ESP32_cherryIoT/`フォルダ内の `.ino`ファイルをArduino IDEで開きます。
+2.  **Wi-Fi設定**: コード内の `const char* ssid = "****"` と `const char* password = "****"` をご自身のWi-Fi情報に書き換えます。
+3.  **GASのURL設定**: 先ほど取得したGASのWebアプリURLをコード内の該当箇所に貼り付けます。
+4.  **書き込み**: Arduino IDEで**ESP32 C3 Dev Module**ボードを選択し、PCとESP32を接続して書き込みを実行します。
 
 ---
 
-##  ���@�摜
+##  実機画像
 
 <table>
   <tr>
     <td align="center">
       <figure>
         <figcaption align="center">
-          <code>�{��</code>
+          <code>本体</code>
         </figcaption>
-        <img src="images/main_device.jpg" alt="�{��" style="width:100%;">
+        <img src="images/main_device.jpg" alt="本体" style="width:100%;">
       </figure>
     </td>
     <td align="center">
       <figure>
         <figcaption align="center">
-          <code>���M���b�Z�[�W</code>
+          <code>送信メッセージ</code>
         </figcaption>
-        <img src="images/advice_image.jpg" alt="���M���b�Z�[�W" style="width:100%;">
+        <img src="images/advice_image.jpg" alt="送信メッセージ" style="width:100%;">
       </figure>
     </td>
   </tr>
@@ -103,7 +103,7 @@
 
 ---
 
-## �o��
+## 経緯
 
-���̋@���IoT���w�҂��Z�p�I�ȗ����E���K�̂��߂ɍ쐬���܂����B
+この機器はIoT初学者が技術的な理解・練習のために作成しました。
 
