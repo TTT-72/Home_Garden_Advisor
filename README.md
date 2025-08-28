@@ -8,7 +8,7 @@
 
 | 技術スタック | 詳細 |
 | :--- | :--- |
-| **ハードウェア** | ESP32-CherryIoT, DHT20（学習教材として[**こちら**](https://github.com/DenkiJoshi/ESP32CherryIoT)の[**ESP32CherryIoT**](images/g5.jpg)の機器をお借りして使用しています。)|
+| **ハードウェア** | ESP32-CherryIoT, DHT20（学習教材として[**こちら**](https://github.com/DenkiJoshi/ESP32CherryIoT)の[**ESP32CherryIoT**](images/g5.jpg)をお借りして使用しています。)|
 | **ファームウェア** | ArduinoIDE |
 | **クラウド** | Google Apps Script, Google SpreadSheet |
 | **API** | OpenWeather, Google Gemini, Line |
